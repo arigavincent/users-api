@@ -1,0 +1,18 @@
+spring:
+    application:
+        name: users-api
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/users_api
+        username: users_api_user
+        password: ${DB_PASSWORD}
+
+    jpa:
+        hibernate:
+            ddl-auto: none
+        show-sql: true
+        open-in-view: false
+    data:
+        web:
+            pageable:
+                default-page-size: 10
+                max-page-size: 50
