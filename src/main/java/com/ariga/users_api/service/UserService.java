@@ -44,13 +44,13 @@ public class UserService {
 
     @Transactional(readOnly = true)
     // public List<UserResponse> getAllUsers() {
-    //     return userMapper.responses(userRepository.findAll());
+    // return userMapper.responses(userRepository.findAll());
     // }
-    public Page<UserResponse> getAllUsers(String name, Pageable pageable){
+    public Page<UserResponse> getAllUsers(String name, Pageable pageable) {
         Page<User> users = (name == null || name.isBlank())
-                            ? userRepository.findAll(pageable)
-                            : userRepository.findByNameContainingIgnoreCase(name, pageable);
-                        return users.map(userMapper::toResponse);
+                ? userRepository.findAll(pageable)
+                : userRepository.findByNameContainingIgnoreCase(name, pageable);
+        return users.map(userMapper::toResponse);
     }
 
     @Transactional
@@ -70,8 +70,6 @@ public class UserService {
         userMapper.applyPatch(user, request);
         return userMapper.toResponse(user);
     }
-
-   
 
     @Transactional
     public void deleteUser(Long id) {

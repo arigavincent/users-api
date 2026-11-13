@@ -8,6 +8,7 @@ import com.ariga.users_api.entities.User;
 
 public interface UserRepository extends JpaRepository<User,Long> {
     boolean existsByEmail(String Email);
+    // boolean existsById(Long id);
     boolean existsByEmailAndIdNot(String Email,Long Id);
     Page<User> findByNameContainingIgnoreCase(String name, Pageable pageable);
 }
