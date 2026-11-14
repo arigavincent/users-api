@@ -5,4 +5,5 @@ public record PostResponse(
         String title,
         String content,
         Long userId,
+        String authorName,
         Instant createdAt) {}

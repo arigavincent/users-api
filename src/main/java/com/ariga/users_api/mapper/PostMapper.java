@@ -23,6 +23,7 @@ public class PostMapper {
             post.getTitle(),
             post.getContent(),
             post.getUser().getId(),
+            post.getUser().getName(),
             post.getCreatedAt()
         );
     }
